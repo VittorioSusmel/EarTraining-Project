@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Intervals</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+  <div id = "leaving-quiz" class = "hide">
+    <div id = "leave-text">
+    <p id = "leave-p">If you go back to the home page you will loose the progress of the current quiz, are you shure you want to quit?</p></div>
+      <div id = "leave-btns">
+      <button id = "cancel-btn" class = "colored" onclick = "hideLeave()">Cancel</button>
+      <button id = "go-to-home-btn" class = "colored" onclick = "goToHomePage()">Home</button>
+      </div>
+  </div>
+  <div id = "menu-bar">
+    <button id = "home-btn" onclick = "leaveQuiz()">Home</button>
+    <h1 id = "site-name"><i>Ear Training Website</i></h1>
+  </div>
+  <div id = "main-container">
+    <div id = "top">
+      <div id = "home-page">
+      <p id = "site-description">This web application has been realized to help musicians train for ear training in the form of a quiz: the application submit random generated intervals or chords, depending on the selected mode.<br>A virtual piano has been implemented to assist the learning process.</p>
+      <p>Press one of the two buttons below to start the training!</p>
+      <div id = "select-quiz">
+      <button class = "colored" onclick= "goToIntervalsOptions()">Intervals quiz</button>
+      <button class = "colored" onclick= "goToChordsOptions()">Chords quiz</button>
+      </div>
+    </div>
+      <div id = "intervals-options" class = "hide">
+      <h1>Interval recognition section</h1>
+      <h2>Choose which types of intervals you want to study in the quiz!</h2>
+      <div class = "btn-grid">
+        <button id = "min2-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "1">Minor 2nd</button>
+        <button id = "maj2-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "2">Major 2nd</button>
+        <button id = "min3-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "3">Minor 3rd</button>
+        <button id = "maj3-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "4">Major 3rd</button>
+        <button id = "perf4-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "5">Perfect 4th</button>
+        <button id = "tritone-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "6">Tritone</button>
+        <button id = "perf5-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "7">Perfect 5th</button>
+        <button id = "min6-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "8">Minor 6th</button>
+        <button id = "maj6-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "9">Major 6th</button>
+        <button id = "min7-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "10">Minor 7th</button>
+        <button id = "maj7-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "11">Major 7th</button>
+        <button id = "octave-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "12">Octave</button>
+        <button id = "min9-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "13">Minor 9th</button>
+        <button id = "maj9-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "14">Major 9th</button>
+      </div>
+      <div id = "other-int-options">
+        <h2>Other options</h2>
+        <div id = "fixed-root-1-div">
+          <button id = "fixed-root-1" class = "slc colored" onclick = "toggleBtnColor(this)">Fixed root</button>
+        </div> 
+        <div id = "opt1">
+            <label>Number of questions</label>
+            <input id = n-questions type = "text" value = "0"/>
+        </div>
+        <div id = "desc1">
+          <p>(leave 0 for never-ending quiz)</p>
+        </div>
+        <div id = "opt2">
+          <select id = "int-type" name = "Interval type">
+            <option value="asc">Ascending</option>
+            <option value="des">Descending</option>
+            <option value="both">Ascending and descending</option>
+            <option value="harm">Harmonic</option>
+          </select>
+        </div> 
+      </div>
+      <div id = "start-int">
+        <button id = "start-int-btn" class = "colored" onclick = "startIntervalsQuiz()">Start quiz</button>
+      </div>
+    </div>
+      <div id = "intervals-quiz" class = "hide">
+    <h1>Interval recognition section</h1>
+    <div id = "c1">
+      <div id = "int-quiz-area">
+        <div id = "intervals-streak"><h3></h3></div>
+        <div id = "hearInt"><button class = "white-bg" onclick = "hearInterval()">Hear interval</button></div>
+        <div id = "int-feedback">Select an answer below</div>
+        <div id = "int-answers">
+        <button id = "min2-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "1">Minor 2nd</button>
+        <button id = "maj2-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "2">Major 2nd</button>
+        <button id = "min3-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "3">Minor 3rd</button>
+        <button id = "maj3-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "4">Major 3rd</button>
+        <button id = "perf4-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "5">Perfect 4th</button>
+        <button id = "tritone-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "6">Tritone</button>
+        <button id = "perf5-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "7">Perfect 5th</button>
+        <button id = "min6-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "8">Minor 6th</button>
+        <button id = "maj6-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "9">Major 6th</button>
+        <button id = "min7-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "10">Minor 7th</button>
+        <button id = "maj7-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "11">Major 7th</button>
+        <button id = "octave-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "12">Octave</button>
+        <button id = "min9-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "13">Minor 9th</button>
+        <button id = "maj9-ans" class = "colored" onclick = "getIntervalsAnswer(this)" value = "14">Major 9th</button>
+      </div>
+        <div id = "next-intervals"><button id = "next-int-question" class = "white-bg hide" onclick = "nextIntervalsQuestion()">Next question</button></div>
+        <div id = "end-int-quiz"><button class = "white-bg" onclick = "endIntervalsQuiz()">End quiz</button></div>
+      </div>
+      <div id = "btn-column">
+        <button id = "fixed-root-2" class = "colored" onclick = "toggleBtnColor(this)">Fixed root</button>
+        <p id = "included-int">Included intervals</p>
+        <button id = "min2-col" class = "colored" onclick = "toggleBtnColor(this)" value = "1">Minor 2nd</button>
+        <button id = "maj2-col" class = "colored" onclick = "toggleBtnColor(this)" value = "2">Major 2nd</button>
+        <button id = "min3-col" class = "colored" onclick = "toggleBtnColor(this)" value = "3">Minor 3rd</button>
+        <button id = "maj3-col" class = "colored" onclick = "toggleBtnColor(this)" value = "4">Major 3rd</button>
+        <button id = "perf4-col" class = "colored" onclick = "toggleBtnColor(this)" value = "5">Perfect 4th</button>
+        <button id = "tritone-col" class = "colored" onclick = "toggleBtnColor(this)" value = "6">Tritone</button>
+        <button id = "perf5-col" class = "colored" onclick = "toggleBtnColor(this)" value = "7">Perfect 5th</button>
+        <button id = "min6-col" class = "colored" onclick = "toggleBtnColor(this)" value = "8">Minor 6th</button>
+        <button id = "maj6-col" class = "colored" onclick = "toggleBtnColor(this)" value = "9">Major 6th</button>
+        <button id = "min7-col" class = "colored" onclick = "toggleBtnColor(this)" value = "10">Minor 7th</button>
+        <button id = "maj7-col" class = "colored" onclick = "toggleBtnColor(this)" value = "11">Major 7th</button>
+        <button id = "octave-col" class = "colored" onclick = "toggleBtnColor(this)" value = "12">Octave</button>
+        <button id = "min9-col" class = "colored" onclick = "toggleBtnColor(this)" value = "13">Minor 9th</button>
+        <button id = "maj9-col" class = "colored" onclick = "toggleBtnColor(this)" value = "14">Major 9th</button>
+      </div>
+    </div>
+    </div>
+      
+      <div id = "chords-options" class = "hide">
+      <h1>Chords recognition section</h1>
+      <h2>Choose which types of chords you want to study in the quiz!</h2>
+      <div class = "btn-grid">
+        <button id = "maj-triad-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "1">Major triad</button>
+        <button id = "min-triad-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "2">Minor triad</button>
+        <button id = "dim-triad-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "3">Diminished triad</button>
+        <button id = "aug-triad-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "4">Augmented triad</button>
+        <button id = "sus-two-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "5">Suspended 2nd</button>
+        <button id = "sus-four-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "6">Suspended 4th</button>
+        <button id = "dom-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "7">Dominant 7th</button>
+        <button id = "maj-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "8">Major 7th</button>
+        <button id = "min-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "9">Minor 7th</button>
+        <button id = "min-maj-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "10">Minor major 7th</button>
+        <button id = "dim-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "11">Diminished 7th</button>
+        <button id = "dim-maj-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "12">Diminished major 7th</button>
+        <button id = "half-dim-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "13">Half diminished 7th</button>
+        <button id = "aug-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "14">Augmented 7th</button>
+        <button id = "aug-maj-sev-opt" class = "colored" onclick = "toggleBtnColor(this)" value = "15">Augmented major 7th</button>
+      </div>
+      <div id = "other-chords-options">
+        <h2>Other options</h2>
+        <div id = "fixed-root-3-div">
+          <button id = "fixed-root-3" class = "slc colored" onclick = "toggleBtnColor(this)">Fixed root</button>
+        </div> 
+        <div id = "opt1">
+            <label>Number of questions</label>
+            <input id = chords-n-questions type = "text" value = "0"/>
+        </div>
+        <div id = "desc1">
+          <p>(leave 0 for never-ending quiz)</p>
+        </div>
+        <div id = "opt2-chords">
+          <input type = checkbox id = "root-position" checked>
+          <label for="root-position">Root position</label><br>
+          <input type = checkbox id = "first-inversion">
+          <label for="first-inversion">First inversion</label><br>
+          <input type = checkbox id = "second-inversion">
+          <label for="second-inversion">Second inversion</label><br>
+          <input type = checkbox id = "third-inversion">
+          <label for="third-inversion">Third inversion</label><br>
+        </div>
+        <div id = "start-chords">
+        <button id = "start-chords-btn" class = "colored" onclick = "startChordsQuiz()">Start quiz</button>
+        </div>
+      </div>
+    </div>
+      <div id = "chords-quiz" class = "hide">
+      <h1>Interval recognition section</h1>
+      <div id = "c2">
+      <div id = "chords-quiz-area">
+        <div id = "chords-streak"><h3></h3></div>
+        <div id = "hearChord"><button class = "white-bg" onclick = "hearChord()">Hear chord</button></div>
+        <div id = "chords-feedback">Select an answer below</div>
+        <div id = "chords-answers">
+        <button id = "maj-triad-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "1">Major triad</button>
+        <button id = "min-triad-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "2">Minor triad</button>
+        <button id = "dim-triad-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "3">Diminished triad</button>
+        <button id = "aug-triad-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "4">Augmented triad</button>
+        <button id = "sus-two-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "5">Suspended 2nd</button>
+        <button id = "sus-four-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "6">Suspended 4th</button>
+        <button id = "dom-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "7">Dominant 7th</button>
+        <button id = "maj-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "8">Major 7th</button>
+        <button id = "min-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "9">Minor 7th</button>
+        <button id = "min-maj-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "10">Minor major 7th</button>
+        <button id = "dim-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "11">Diminished 7th</button>
+        <button id = "dim-maj-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "12">Diminished major 7th</button>
+        <button id = "half-dim-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "13">Half diminished 7th</button>
+        <button id = "aug-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "14">Augmented 7th</button>
+        <button id = "aug-maj-sev-ans" class = "colored" onclick = "getChordsAnswer(this)" value = "15">Augmented major 7th</button>
+      </div>
+        <div id = "next-chords"><button id = "next-chords-question" class = "white-bg hide" onclick = "nextChordsQuestion()">Next question</button></div>
+        <div id = "end-chords-quiz"><button class = "white-bg" onclick = "endChordsQuiz()">End quiz</button></div>
+      </div>
+      <div id = "btn-column-chords">
+        <button id = "fixed-root-4" class = "colored" onclick = "toggleBtnColor(this)">Fixed root</button>
+        <p id = "included-chords">Included chord species</p>
+        <button id = "maj-triad-col" class = "colored" onclick = "toggleBtnColor(this)" value = "1">Major triad</button>
+        <button id = "min-triad-col" class = "colored" onclick = "toggleBtnColor(this)" value = "2">Minor triad</button>
+        <button id = "dim-triad-col" class = "colored" onclick = "toggleBtnColor(this)" value = "3">Diminished triad</button>
+        <button id = "aug-triad-col" class = "colored" onclick = "toggleBtnColor(this)" value = "4">Augmented triad</button>
+        <button id = "sus-two-col" class = "colored" onclick = "toggleBtnColor(this)" value = "5">Suspended 2nd</button>
+        <button id = "sus-four-col" class = "colored" onclick = "toggleBtnColor(this)" value = "6">Suspended 4th</button>
+        <button id = "dom-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "7">Dominant 7th</button>
+        <button id = "maj-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "8">Major 7th</button>
+        <button id = "min-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "9">Minor 7th</button>
+        <button id = "min-maj-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "10">Minor major 7th</button>
+        <button id = "dim-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "11">Diminished 7th</button>
+        <button id = "dim-maj-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "12">Diminished major 7th</button>
+        <button id = "half-dim-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "13">Half diminished 7th</button>
+        <button id = "aug-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "14">Augmented 7th</button>
+        <button id = "aug-maj-sev-col" class = "colored" onclick = "toggleBtnColor(this)" value = "15">Augmented major 7th</button>
+      </div>
+    </div>
+    </div>
+      
+      <div id = "intervals-results" class = "hide">
+        <div id = "intervals-results-c">
+        <div id = "intervals-results-left-column">
+          <h3>Interval</h3>
+          <p>Minor 2nd</p>
+          <p>Major 2nd</p>
+          <p>Minor 3rd</p>
+          <p>Major 3rd</p>
+          <p>Perfect 4th</p>
+          <p>Tritone</p>
+          <p>Perfect 5th</p>
+          <p>Minor 6th</p>
+          <p>Major 6th</p>
+          <p>Minor 7th</p>
+          <p>Major 7th</p>
+          <p>Octave</p>
+          <p>Minor 9th</p>
+          <p>Major 9th</p>
+        </div>
+        <div id = "intervals-results-center-column">
+          <h3>Correct/heared</h3>
+          <p id = "int-result-p0"></p>
+          <p id = "int-result-p1"></p>
+          <p id = "int-result-p2"></p>
+          <p id = "int-result-p3"></p>
+          <p id = "int-result-p4"></p>
+          <p id = "int-result-p5"></p>
+          <p id = "int-result-p6"></p>
+          <p id = "int-result-p7"></p>
+          <p id = "int-result-p8"></p>
+          <p id = "int-result-p9"></p>
+          <p id = "int-result-p10"></p>
+          <p id = "int-result-p11"></p>
+          <p id = "int-result-p12"></p>
+          <p id = "int-result-p13"></p>
+          <p id = "int-result-p14"></p>
+        </div>
+        <div id = "intervals-results-right-column">
+          <h3>Accuracy percentage</h3>
+          <p id = "int-percentage-p0"></p>
+          <p id = "int-percentage-p1"></p>
+          <p id = "int-percentage-p2"></p>
+          <p id = "int-percentage-p3"></p>
+          <p id = "int-percentage-p4"></p>
+          <p id = "int-percentage-p5"></p>
+          <p id = "int-percentage-p6"></p>
+          <p id = "int-percentage-p7"></p>
+          <p id = "int-percentage-p8"></p>
+          <p id = "int-percentage-p9"></p>
+          <p id = "int-percentage-p10"></p>
+          <p id = "int-percentage-p11"></p>
+          <p id = "int-percentage-p12"></p>
+          <p id = "int-percentage-p13"></p>
+          <p id = "int-percentage-p14"></p>
+        </div>
+        </div>
+        <p>Press <i>Home</i> to go back to the home page</p>
+        </div>
+      <div id = "chords-results" class = "hide">
+        <div id = "chords-results-c">
+        <div id = "chords-results-left-column">
+          <h3>Chord</h3>
+          <p>Major triad</p>
+          <p>Minor triad</p>
+          <p>Diminished triad</p>
+          <p>Augmented triad</p>
+          <p>Suspended 2nd</p>
+          <p>Suspended 4th</p>
+          <p>Dominant 7th</p>
+          <p>Major 7th</p>
+          <p>Minor 7th</p>
+          <p>Minor major 7th</p>
+          <p>Dimished 7th</p>
+          <p>Diminished major 7th</p>
+          <p>Half diminished 7th</p>
+          <p>Augmented 7th</p>
+          <p>Augmented major 7th</p>
+        </div>
+        <div id = "chords-results-center-column">
+          <h3>Correct/heared</h3>
+          <p id = "chords-result-p0"></p>
+          <p id = "chords-result-p1"></p>
+          <p id = "chords-result-p2"></p>
+          <p id = "chords-result-p3"></p>
+          <p id = "chords-result-p4"></p>
+          <p id = "chords-result-p5"></p>
+          <p id = "chords-result-p6"></p>
+          <p id = "chords-result-p7"></p>
+          <p id = "chords-result-p8"></p>
+          <p id = "chords-result-p9"></p>
+          <p id = "chords-result-p10"></p>
+          <p id = "chords-result-p11"></p>
+          <p id = "chords-result-p12"></p>
+          <p id = "chords-result-p13"></p>
+          <p id = "chords-result-p14"></p>
+          <p id = "chords-result-p15"></p>
+        </div>
+        <div id = "chords-results-right-column">
+          <h3>Accuracy percentage</h3>
+          <p id = "chords-percentage-p0"></p>
+          <p id = "chords-percentage-p1"></p>
+          <p id = "chords-percentage-p2"></p>
+          <p id = "chords-percentage-p3"></p>
+          <p id = "chords-percentage-p4"></p>
+          <p id = "chords-percentage-p5"></p>
+          <p id = "chords-percentage-p6"></p>
+          <p id = "chords-percentage-p7"></p>
+          <p id = "chords-percentage-p8"></p>
+          <p id = "chords-percentage-p9"></p>
+          <p id = "chords-percentage-p10"></p>
+          <p id = "chords-percentage-p11"></p>
+          <p id = "chords-percentage-p12"></p>
+          <p id = "chords-percentage-p13"></p>
+          <p id = "chords-percentage-p14"></p>
+          <p id = "chords-percentage-p15"></p>
+        </div>
+        </div>
+        <p>Press <i>Home</i> to go back to the home page</p>
+      </div>
+    </div>
+    <div id = "bottom">
+    <div id = "piano">
+      <div id="1" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="2" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="3" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="4" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="5" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="6" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="7" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="8" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="9" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="10" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="11" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="12" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="13" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="14" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="15" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="16" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="17" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="18" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="19" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="20" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="21" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="22" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="23" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="24" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="25" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="26" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="27" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="28" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="29" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="30" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="31" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="32" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="33" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="34" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="35" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="36" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="37" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="38" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="39" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="40" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="41" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="42" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="43" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="44" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="45" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="46" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="47" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="48" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="49" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="50" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="51" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="52" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="53" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="54" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="55" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="56" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="57" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="58" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="59" class = "key black" onClick = "playPiano(this.id)"></div>
+      <div id="60" class = "key white" onClick = "playPiano(this.id)"></div>
+      <div id="61" class = "key white" onClick = "playPiano(this.id)"></div>
+    </div>
+  </div>
+  </div>
+</body>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

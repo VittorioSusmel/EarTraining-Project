@@ -1,0 +1,456 @@
+body {
+  font-family: arial;
+  margin: 0vh; 
+  margin-bottom: 200px;
+  width: auto;
+}
+
+#main-container {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 4%;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  text-justify: inter-word;
+}
+
+.hide {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  width: 160px;
+  text-align: left;
+}
+
+input {
+  text-align: right;
+}
+
+button {
+  font-family: arial;
+  background-color: grey;
+  color: white;
+  width: 132px;
+  height: 44px;
+  font-size: 16px;
+  border: 0px;
+  text-align: center;
+  margin: 2px;
+}
+
+button:hover {
+  background: #656565;
+}
+
+.white-bg {
+  background-color: white;
+  color: black;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.white-bg:hover {
+  background: #D3D3D3;
+}
+
+select {
+  font-family: arial;
+}
+
+#top {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+#home-page {
+  max-width: 700px;
+}
+
+#site-description {
+  margin-top:15%;
+}
+
+#select-quiz {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+
+.colored {
+  background-color: green;
+  opacity:100%;
+}
+
+.colored:hover {
+  background: #32CD32;
+}
+
+.right {
+  background: #32CD32;
+}
+
+.right:hover {
+  background: #32CD32;
+}
+
+.wrong {
+  background: red;
+}
+
+.wrong:hover {
+  background: red;
+}
+
+/*intervals options section*/
+.btn-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 180px 180px auto; /*try relative spacing*/
+  margin: 2%;
+}
+
+#fixed-root-1-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
+#fixed-root-3-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
+#opt2-chords {
+  text-align: center;
+  margin-top: 2%;
+}
+
+#desc1 {
+  font-family: arial;
+  font-size: 10pt;
+  display: flex;
+  justify-content: center;
+  color: gray;
+}
+
+/*interval quiz section*/
+#c1 {
+  display: flex;
+  justify-content: center;
+}
+
+#int-quiz-area {
+  margin-right: 10%;
+}
+
+#start-int {
+  display: flex;
+  justify-content: center;
+  margin: 7%;
+}
+
+#int-feedback {
+  display: flex;
+  justify-content: center;
+  height:3%;
+}
+
+#int-answers {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 180px 180px auto; /*try relative spacing*/
+  margin: 2%;
+}
+
+#hearInt {
+  display: flex;
+  justify-content: center;
+  margin: 4%;
+}
+
+#end-int-quiz {
+  display: flex;
+  justify-content: center;
+  margin: 12%;
+}
+
+#next-intervals {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  height:3%;
+}
+
+#btn-column {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+#included-int {
+  width: 132px;
+}
+
+#fixed-root-2 {
+  margin-top: 50%;
+  margin-bottom: 30%;
+}
+
+#intervals-streak {
+  display: flex;
+  justify-content: center;
+}
+
+#opt1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+#opt2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+/*chords options and quiz section*/
+#c2 {
+  display: flex;
+  justify-content: center;
+}
+
+#start-chords {
+  display: flex;
+  justify-content: center;
+  margin: 7%;
+}
+
+#chords-quiz-area {
+  margin-right: 10%;
+}
+
+#chords-feedback {
+  display: flex;
+  justify-content: center;
+  height:3%;
+}
+
+#chords-answers {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 180px 180px auto; /*try relative spacing*/
+  margin: 2%;
+}
+
+#hearChord {
+  display: flex;
+  justify-content: center;
+  margin: 4%;
+}
+
+#end-chords-quiz {
+  display: flex;
+  justify-content: center;
+  margin: 12%;
+}
+
+#next-chords {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  height:3%;
+}
+
+#included-chords {
+  width: 132px;
+}
+
+#btn-column-chords {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+#fixed-root-4 {
+  margin-top: 50%;
+  margin-bottom: 30%;
+}
+
+#chords-streak {
+  display: flex;
+  justify-content: center;
+}
+
+/*menu bar*/
+#menu-bar {
+  /*overflow: hidden;*/
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  height: 50px;
+  background-color: green;
+}
+
+#home-btn {
+  background-color: green;
+  border: none;
+  position: fixed;
+  left: 0px;
+  width: 80px;
+  height: 48px;
+}
+
+#home-btn:hover {
+  background: #32CD32;
+}
+
+#site-name {
+  position: absolute;
+  top: -16px;
+  right: 16px;
+  color: white;
+}
+
+/*leave quiz section*/
+#leaving-quiz {
+  transform: translate(-50%,-50%);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background:rgba(0, 0, 0, 85%);
+  z-index: 3;
+  top: 50%;
+  left: 50%
+}
+
+#leave-p {
+  margin-top: 30%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  color: white;
+  justify-content: center;
+  line-height: 2;
+}
+
+#leave-text {
+  display: flex;
+  justify-content: center;
+}
+
+#leave-btns {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+
+/*intervals results*/
+#intervals-results-c {
+  display: flex;
+  justify-content: center;
+}
+
+#intervals-results-left-column {
+  width: 150px;
+  margin-top: 5%;
+}
+
+#intervals-results-center-column {
+  width: 250px;
+  margin-top: 5%;
+}
+
+#intervals-results-right-column {
+  width: 250px;
+  margin-top: 5%;
+}
+
+/*chords results*/
+#chords-results-c {
+  display: flex;
+  justify-content: center;
+}
+
+#chords-results-left-column {
+  width: 160px;
+  margin-top: 5%;
+}
+
+#chords-results-center-column {
+  width: 250px;
+  margin-top: 5%;
+}
+
+#chords-results-right-column {
+  width: 250px;
+  margin-top: 5%;
+}
+
+/*bottom*/
+#bottom {
+  position: fixed;
+  display: flex;
+  justify-content: center; 
+  bottom: 0px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#piano {
+  display: flex; /*flex*/
+  justify-content: center; 
+  margin: auto;
+}
+
+.key {
+  height: calc(var(--width) * 4);
+  width: var(--width);
+}
+
+.white {
+  --width: 25px;
+  background-color: white;
+  border: 1px solid #333;
+}
+
+.white:active {
+  background-color: #c6c6c6;
+}
+
+.black {
+  --width: 15px;
+  background-color: black;
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 2;
+}
+
+.black:active {
+  background-color: #4e4e4e;
+}
