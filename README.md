@@ -1,5 +1,5 @@
 preview link: https://htmlpreview.github.io/?https://github.com/VittorioSusmel/EarTraining-Project/blob/main/index.html  
-video presentation: [![Ear Training Site Presentation](https://i9.ytimg.com/vi_webp/iGlU_qmR-L8/mq1.webp?sqp=CJT-xLQG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBQgcigRMA8=&rs=AOn4CLDnuZpYor5SPVT26UB7WaNFgh0QTw.jpg)](https://youtu.be/iGlU_qmR-L8)
+video presentation: [![Ear Training Site Presentation](https://img.youtube.com/vi/iGlU_qmR-L8/0.jpg)](https://youtu.be/iGlU_qmR-L8)
 
 The project consists in the implementation of a website that can help musicians develop their ability to recognize intervals and chords types.  
 The project is realized in vanilla javascript, css and html.  
